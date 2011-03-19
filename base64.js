@@ -7,6 +7,7 @@
       var
         a, b, b1, b2, b3, b4, c,
         i = 0,
+        len = string.length,
         result = '';
 
       do {
@@ -27,7 +28,7 @@
 
         result += characters.charAt(b1) + characters.charAt(b2) + characters.charAt(b3) + characters.charAt(b4);
 
-      } while (i < string.length);
+      } while (i < len);
 
       return result;
     },
@@ -36,6 +37,7 @@
       var
         a, b, b1, b2, b3, b4, c,
         i = 0,
+        len = string.length,
         result = '';
 
       do {
@@ -50,7 +52,7 @@
 
         result += String.fromCharCode(a) + (b?String.fromCharCode(b):'') + (c?String.fromCharCode(c):'');
 
-      } while (i < string.length);
+      } while (i < len);
 
       return result;
     }
