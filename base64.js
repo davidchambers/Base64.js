@@ -12,7 +12,7 @@
         len = string.length,
         result = '';
 
-      do {
+      while (i < len) {
         a = string.charCodeAt(i++) || 0;
         b = string.charCodeAt(i++) || 0;
         c = string.charCodeAt(i++) || 0;
@@ -29,8 +29,7 @@
         }
 
         result += characters.charAt(b1) + characters.charAt(b2) + characters.charAt(b3) + characters.charAt(b4);
-
-      } while (i < len);
+      }
 
       return result;
     },
@@ -42,7 +41,7 @@
         len = string.length,
         result = '';
 
-      do {
+      while (i < len) {
         b1 = characters.indexOf(string.charAt(i++));
         b2 = characters.indexOf(string.charAt(i++));
         b3 = characters.indexOf(string.charAt(i++));
@@ -53,8 +52,7 @@
         c = ((b3 & 0x3) << 6) | (b4 & 0x3F);
 
         result += fromCharCode(a) + (b?fromCharCode(b):'') + (c?fromCharCode(c):'');
-
-      } while (i < len);
+      }
 
       return result;
     }
