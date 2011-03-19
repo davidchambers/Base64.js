@@ -5,6 +5,7 @@
     fromCharCode = String.fromCharCode;
 
   window.Base64 = {
+
     encode: function (string) {
       var
         a, b, b1, b2, b3, b4, c, i = 0,
@@ -25,10 +26,8 @@
         } else if (!c) {
           b4 = 64;
         }
-
         result += characters.charAt(b1) + characters.charAt(b2) + characters.charAt(b3) + characters.charAt(b4);
       }
-
       return result;
     },
 
@@ -51,7 +50,6 @@
         if (b) chars.push(fromCharCode(b));
         if (c) chars.push(fromCharCode(c));
       }
-
       return chars.join('');
     }
   };
