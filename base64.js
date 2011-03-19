@@ -9,13 +9,9 @@ var Base64 = {
       result = '';
 
     do {
-      a = string.charCodeAt(i++);
-      b = string.charCodeAt(i++);
-      c = string.charCodeAt(i++);
-
-      a = a ? a : 0;
-      b = b ? b : 0;
-      c = c ? c : 0;
+      a = string.charCodeAt(i++) || 0;
+      b = string.charCodeAt(i++) || 0;
+      c = string.charCodeAt(i++) || 0;
 
       b1 = (a >> 2) & 0x3F;
       b2 = ((a & 0x3) << 4) | ((b >> 4) & 0xF);
