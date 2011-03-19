@@ -1,6 +1,8 @@
 ;(function (window) {
 
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  var
+    characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
+    fromCharCode = String.fromCharCode;
 
   window.Base64 = {
     encode: function (string) {
@@ -50,7 +52,7 @@
         b = ((b2 & 0xF) << 4) | ((b3 >> 2) & 0xF);
         c = ((b3 & 0x3) << 6) | (b4 & 0x3F);
 
-        result += String.fromCharCode(a) + (b?String.fromCharCode(b):'') + (c?String.fromCharCode(c):'');
+        result += fromCharCode(a) + (b?fromCharCode(b):'') + (c?fromCharCode(c):'');
 
       } while (i < len);
 
