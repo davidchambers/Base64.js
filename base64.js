@@ -7,10 +7,8 @@
   window.Base64 = {
     encode: function (string) {
       var
-        a, b, b1, b2, b3, b4, c,
-        i = 0,
-        len = string.length,
-        result = '';
+        a, b, b1, b2, b3, b4, c, i = 0,
+        len = string.length, result = '';
 
       while (i < len) {
         a = string.charCodeAt(i++) || 0;
@@ -36,10 +34,8 @@
 
     decode: function (string) {
       var
-        a, b, b1, b2, b3, b4, c,
-        i = 0,
-        len = string.length,
-        result = '';
+        a, b, b1, b2, b3, b4, c, i = 0,
+        len = string.length, chars = [];
 
       while (i < len) {
         b1 = characters.indexOf(string.charAt(i++));
@@ -51,10 +47,12 @@
         b = ((b2 & 0xF) << 4) | ((b3 >> 2) & 0xF);
         c = ((b3 & 0x3) << 6) | (b4 & 0x3F);
 
-        result += fromCharCode(a) + (b?fromCharCode(b):'') + (c?fromCharCode(c):'');
+        chars.push(fromCharCode(a));
+        if (b) chars.push(fromCharCode(b));
+        if (c) chars.push(fromCharCode(c));
       }
 
-      return result;
+      return chars.join('');
     }
   };
 
