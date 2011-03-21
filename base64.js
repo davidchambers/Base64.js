@@ -4,9 +4,9 @@
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     fromCharCode = String.fromCharCode;
 
-  window.Base64 = {
-
-    encode: function (string) {
+  // encoder
+  window.btoa || (
+    window.btoa = function (string) {
       var
         a, b, b1, b2, b3, b4, c, i = 0,
         len = string.length, result = '';
@@ -29,9 +29,12 @@
         result += characters.charAt(b1) + characters.charAt(b2) + characters.charAt(b3) + characters.charAt(b4);
       }
       return result;
-    },
+    }
+  );
 
-    decode: function (string) {
+  // decoder
+  window.atob || (
+    window.atob = function (string) {
       var
         a, b, b1, b2, b3, b4, c, i = 0,
         len = string.length, chars = [];
@@ -52,6 +55,6 @@
       }
       return chars.join('');
     }
-  };
+  );
 
 }(this));
