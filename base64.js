@@ -2,19 +2,24 @@
 
   var
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
-    fromCharCode = String.fromCharCode;
+    fromCharCode = String.fromCharCode,
+    INVALID_CHARACTER_ERR = 'INVALID_CHARACTER_ERR';
 
   // encoder
   window.btoa || (
     window.btoa = function (string) {
       var
         a, b, b1, b2, b3, b4, c, i = 0,
-        len = string.length, result = '';
+        len = string.length, max = Math.max, result = '';
 
       while (i < len) {
         a = string.charCodeAt(i++) || 0;
         b = string.charCodeAt(i++) || 0;
         c = string.charCodeAt(i++) || 0;
+
+        if (max(a, b, c) > 0xFF) {
+          throw INVALID_CHARACTER_ERR;
+        }
 
         b1 = (a >> 2) & 0x3F;
         b2 = ((a & 0x3) << 4) | ((b >> 4) & 0xF);
@@ -35,9 +40,12 @@
   // decoder
   window.atob || (
     window.atob = function (string) {
+      string = string.replace(/=+$/, '');
       var
         a, b, b1, b2, b3, b4, c, i = 0,
         len = string.length, chars = [];
+
+      if (len % 4 == 1) throw INVALID_CHARACTER_ERR;
 
       while (i < len) {
         b1 = characters.indexOf(string.charAt(i++));
