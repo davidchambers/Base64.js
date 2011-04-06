@@ -3,7 +3,10 @@
   var
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     fromCharCode = String.fromCharCode,
-    INVALID_CHARACTER_ERR = 'INVALID_CHARACTER_ERR';
+    INVALID_CHARACTER_ERR = (function () {
+      // fabricate a suitable error object
+      try { document.createElement('$'); }
+      catch (error) { return error; }}());
 
   // encoder
   window.btoa || (
