@@ -48,7 +48,7 @@
         a, b, b1, b2, b3, b4, c, i = 0,
         len = string.length, chars = [];
 
-      if (len % 4 == 1) throw INVALID_CHARACTER_ERR;
+      if (len % 4 === 1) throw INVALID_CHARACTER_ERR;
 
       while (i < len) {
         b1 = characters.indexOf(string.charAt(i++));
@@ -61,8 +61,8 @@
         c = ((b3 & 0x3) << 6) | (b4 & 0x3F);
 
         chars.push(fromCharCode(a));
-        if (b) chars.push(fromCharCode(b));
-        if (c) chars.push(fromCharCode(c));
+        b && chars.push(fromCharCode(b));
+        c && chars.push(fromCharCode(c));
       }
       return chars.join('');
     }
