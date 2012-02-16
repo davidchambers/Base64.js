@@ -7,6 +7,7 @@ Although the script does no harm in browsers which do provide these functions,
 a conditional script loader such as [yepnope][3] can prevent unnecessary HTTP
 requests.
 
+    :::javascript
     yepnope({
       test: window.btoa && window.atob,
       nope: 'base64.js',
