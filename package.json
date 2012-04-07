@@ -8,9 +8,11 @@
   },
   "devDependencies": {
     "coffee-script": "1.2.x",
-    "jessie": "0.4.x"
+    "jessie": "0.4.x",
+    "uglify-js": "1.2.x"
   },
   "scripts": {
+    "bytes": "node_modules/uglify-js/bin/uglifyjs base64.js | gzip -9f | wc -c",
     "test": "node_modules/jessie/bin/jessie spec"
   }
 }

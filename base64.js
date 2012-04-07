@@ -2,69 +2,54 @@
 
   var
     object = typeof window != 'undefined' ? window : exports,
-    characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
-    fromCharCode = String.fromCharCode,
+    chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     INVALID_CHARACTER_ERR = (function () {
       // fabricate a suitable error object
       try { document.createElement('$'); }
       catch (error) { return error; }}());
 
   // encoder
+  // [https://gist.github.com/999166] by [https://github.com/nignag]
   object.btoa || (
-  object.btoa = function (string) {
-    var
-      a, b, b1, b2, b3, b4, c, i = 0,
-      len = string.length, max = Math.max, result = '';
-
-    while (i < len) {
-      a = string.charCodeAt(i++) || 0;
-      b = string.charCodeAt(i++) || 0;
-      c = string.charCodeAt(i++) || 0;
-
-      if (max(a, b, c) > 0xFF) {
-        throw INVALID_CHARACTER_ERR;
-      }
-
-      b1 = (a >> 2) & 0x3F;
-      b2 = ((a & 0x3) << 4) | ((b >> 4) & 0xF);
-      b3 = ((b & 0xF) << 2) | ((c >> 6) & 0x3);
-      b4 = c & 0x3F;
-
-      if (!b) {
-        b3 = b4 = 64;
-      } else if (!c) {
-        b4 = 64;
-      }
-      result += characters.charAt(b1) + characters.charAt(b2) + characters.charAt(b3) + characters.charAt(b4);
+  object.btoa = function (input) {
+    for (
+      // initialize result and counter
+      var block, charCode, idx = 0, map = chars, output = '';
+      // if the next input index does not exist:
+      //   change the mapping table to "="
+      //   check if d has no fractional digits
+      input.charAt(idx | 0) || (map = '=', idx % 1);
+      // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+      output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+    ) {
+      charCode = input.charCodeAt(idx += 3/4);
+      if (charCode > 0xFF) throw INVALID_CHARACTER_ERR;
+      block = block << 8 | charCode;
     }
-    return result;
+    return output;
   });
 
   // decoder
+  // [https://gist.github.com/1020396] by [https://github.com/atk]
   object.atob || (
-  object.atob = function (string) {
-    string = string.replace(/=+$/, '');
-    var
-      a, b, b1, b2, b3, b4, c, i = 0,
-      len = string.length, chars = [];
-
-    if (len % 4 === 1) throw INVALID_CHARACTER_ERR;
-
-    while (i < len) {
-      b1 = characters.indexOf(string.charAt(i++));
-      b2 = characters.indexOf(string.charAt(i++));
-      b3 = characters.indexOf(string.charAt(i++));
-      b4 = characters.indexOf(string.charAt(i++));
-
-      a = ((b1 & 0x3F) << 2) | ((b2 >> 4) & 0x3);
-      b = ((b2 & 0xF) << 4) | ((b3 >> 2) & 0xF);
-      c = ((b3 & 0x3) << 6) | (b4 & 0x3F);
-
-      chars.push(fromCharCode(a));
-      b && chars.push(fromCharCode(b));
-      c && chars.push(fromCharCode(c));
+  object.atob = function (input) {
+    input = input.replace(/=+$/, '')
+    if (input.length % 4 == 1) throw INVALID_CHARACTER_ERR;
+    for (
+      // initialize result and counters
+      var bc = 0, bs, buffer, idx = 0, output = '';
+      // get next character
+      buffer = input.charAt(idx++);
+      // character found in table? initialize bit storage and add its ascii value;
+      ~buffer && (bs = bc % 4 ? bs * 64 + buffer : buffer,
+        // and if not first of each 4 characters,
+        // convert the first 8 bits to one ascii character
+        bc++ % 4) ? output += String.fromCharCode(255 & bs >> (-2 * bc & 6)) : 0
+    ) {
+      // try to find character in table (0-63, not found => -1)
+      buffer = chars.indexOf(buffer);
     }
-    return chars.join('');
+    return output;
   });
 
 }());
