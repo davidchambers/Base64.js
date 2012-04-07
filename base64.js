@@ -1,6 +1,7 @@
-;(function (window) {
+;(function () {
 
   var
+    object = typeof window != 'undefined' ? window : exports,
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     fromCharCode = String.fromCharCode,
     INVALID_CHARACTER_ERR = (function () {
@@ -9,8 +10,8 @@
       catch (error) { return error; }}());
 
   // encoder
-  window.btoa || (
-  window.btoa = function (string) {
+  object.btoa || (
+  object.btoa = function (string) {
     var
       a, b, b1, b2, b3, b4, c, i = 0,
       len = string.length, max = Math.max, result = '';
@@ -40,8 +41,8 @@
   });
 
   // decoder
-  window.atob || (
-  window.atob = function (string) {
+  object.atob || (
+  object.atob = function (string) {
     string = string.replace(/=+$/, '');
     var
       a, b, b1, b2, b3, b4, c, i = 0,
@@ -66,4 +67,4 @@
     return chars.join('');
   });
 
-}(this));
+}());

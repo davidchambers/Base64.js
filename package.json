@@ -1,0 +1,16 @@
+{
+  "name": "Base64",
+  "version": "0.1.0",
+  "description": "window.btoa and window.atob polyfills",
+  "repository": {
+    "type": "hg",
+    "url": "https://bitbucket.org/davidchambers/base64.js"
+  },
+  "devDependencies": {
+    "coffee-script": "1.2.x",
+    "jessie": "0.4.x"
+  },
+  "scripts": {
+    "test": "node_modules/jessie/bin/jessie spec"
+  }
+}

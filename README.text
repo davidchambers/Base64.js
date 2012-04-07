@@ -18,6 +18,12 @@ requests.
 
 Base64.js stems from a [gist][4] by [yahiko][5].
 
+### Running the test suite
+
+    :::text
+    npm install
+    npm test
+
 
 [1]: https://developer.mozilla.org/en/DOM/window.btoa
 [2]: https://developer.mozilla.org/en/DOM/window.atob
