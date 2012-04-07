@@ -13,6 +13,7 @@
   },
   "scripts": {
     "bytes": "node_modules/uglify-js/bin/uglifyjs base64.js | gzip -9f | wc -c",
-    "test": "node_modules/jessie/bin/jessie spec"
+    "test": "node_modules/jessie/bin/jessie spec",
+    "uglify": "node_modules/uglify-js/bin/uglifyjs -o base64.min.js base64.js"
   }
 }
