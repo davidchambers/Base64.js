@@ -2,6 +2,10 @@
   "name": "Base64",
   "version": "0.1.0",
   "description": "window.btoa and window.atob polyfills",
+  "licenses": [{
+    "type": "WTFPL",
+    "url": "https://bitbucket.org/davidchambers/base64.js/raw/default/LICENSE"
+  }],
   "repository": {
     "type": "hg",
     "url": "https://bitbucket.org/davidchambers/base64.js"
