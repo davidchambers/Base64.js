@@ -21,7 +21,6 @@ Base64.js stems from a [gist][4] by [yahiko][5].
 
 ### Running the test suite
 
-    :::text
     npm install
     npm test
 
