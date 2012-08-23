@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/davidchambers/Base64.js.png)](http://travis-ci.org/davidchambers/Base64.js)
 # Base64.js
 
 428 byte* polyfill for browsers which don't provide [`window.btoa`][1] and
