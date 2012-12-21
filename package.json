@@ -1,6 +1,6 @@
 {
   "name": "Base64",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "window.btoa and window.atob polyfills",
   "author": "David Chambers <dc@hashify.me>",
   "licenses": [{
@@ -9,17 +9,11 @@
   }],
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidchambers/Base64.js"
+    "url": "git://github.com/davidchambers/Base64.js.git"
   },
-  "bugs": "https://github.com/davidchambers/Base64.js/issues",
   "devDependencies": {
-    "coffee-script": "1.3.x",
-    "jessie": "0.4.x",
-    "uglify-js": "1.2.x"
-  },
-  "scripts": {
-    "bytes": "node_modules/uglify-js/bin/uglifyjs base64.js | gzip -9f | wc -c",
-    "test": "node_modules/jessie/bin/jessie spec",
-    "uglify": "node_modules/uglify-js/bin/uglifyjs -o base64.min.js base64.js"
+    "coffee-script": "1.4.x",
+    "mocha": "1.7.x",
+    "uglify-js": "2.2.x"
   }
 }

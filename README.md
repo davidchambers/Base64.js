@@ -1,6 +1,6 @@
 # Base64.js
 
-428 byte* polyfill for browsers which don't provide [`window.btoa`][1] and
+< 500 byte* polyfill for browsers which don't provide [`window.btoa`][1] and
 [`window.atob`][2].
 
 Although the script does no harm in browsers which do provide these functions,
@@ -21,10 +21,10 @@ Base64.js stems from a [gist][4] by [yahiko][5].
 
 ### Running the test suite
 
-    npm install
-    npm test
+    make setup
+    make test
 
-\* Minified and gzipped. Run `npm run-script bytes` to verify.
+\* Minified and gzipped. Run `make bytes` to verify.
 
 
 [1]: https://developer.mozilla.org/en/DOM/window.btoa
