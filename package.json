@@ -1,7 +1,7 @@
 {
   "name": "Base64",
-  "version": "0.1.1",
-  "description": "window.btoa and window.atob polyfills",
+  "version": "0.1.2",
+  "description": "Base64 encoding and decoding",
   "author": "David Chambers <dc@hashify.me>",
   "main": "./base64.js",
   "licenses": [{
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "coffee-script": "1.4.x",
-    "mocha": "1.7.x",
+    "mocha": "1.8.x",
     "uglify-js": "2.2.x"
   }
 }
