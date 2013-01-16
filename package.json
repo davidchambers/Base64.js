@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "window.btoa and window.atob polyfills",
   "author": "David Chambers <dc@hashify.me>",
+  "main": "./base64.js",
   "licenses": [{
     "type": "WTFPL",
     "url": "https://raw.github.com/davidchambers/Base64.js/master/LICENSE"
