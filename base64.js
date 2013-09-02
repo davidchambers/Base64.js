@@ -2,12 +2,13 @@
 
   var
     object = typeof window != 'undefined' ? window : exports,
-    chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     INVALID_CHARACTER_ERR = (function () {
       // fabricate a suitable error object
       try { document.createElement('$'); }
-      catch (error) { return error; }}());
-
+      catch (error) { return error; }}()),
+    chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    chars += chars .toLowerCase() + '0123456789+/=';
+  
   // encoder
   // [https://gist.github.com/999166] by [https://github.com/nignag]
   object.btoa || (
