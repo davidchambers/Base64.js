@@ -1,8 +1,8 @@
 {
   "name": "Base64",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Base64 encoding and decoding",
-  "author": "David Chambers <dc@hashify.me>",
+  "author": "David Chambers <dc@davidchambers.me>",
   "main": "./base64.js",
   "licenses": [{
     "type": "WTFPL",
