@@ -1,7 +1,7 @@
 ;(function () {
 
   var
-    object = typeof window != 'undefined' ? window : exports,
+    object = typeof exports != 'undefined' ? exports : window,
     chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     INVALID_CHARACTER_ERR = (function () {
       // fabricate a suitable error object
