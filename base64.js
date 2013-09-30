@@ -1,7 +1,8 @@
 ;(function () {
 
   var
-    object = typeof exports != 'undefined' ? exports : window,
+    object = typeof exports != 'undefined' ? exports
+           : typeof window  != 'undefined' ? window : self, // self is used in WebWorkers where window doesn't exists
     chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
     INVALID_CHARACTER_ERR = (function () {
       // fabricate a suitable error object
