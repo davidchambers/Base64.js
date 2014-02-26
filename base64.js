@@ -32,6 +32,14 @@
     return output;
   });
 
+  // Base64 encode data with URL and Filename Safe Alphabet
+  // See: http://tools.ietf.org/html/rfc4648#page-7
+  object.base64urlencode = function(input) {
+    if (!input) return input;
+
+    return object.btoa(input).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+  }
+
   // decoder
   // [https://gist.github.com/1020396] by [https://github.com/atk]
   object.atob || (
