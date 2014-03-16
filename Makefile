@@ -1,8 +1,15 @@
-bin = node_modules/.bin
+ISTANBUL = node_modules/.bin/istanbul
+UGLIFYJS = node_modules/.bin/uglifyjs
+
+SRC = base64.js
+MIN = $(patsubst %.js,%.min.js,$(SRC))
 
 
-base64.min.js: base64.js
-	@$(bin)/uglifyjs $< --compress --mangle > $@
+.PHONY: all
+all: $(MIN)
+
+%.min.js: %.js
+	@$(UGLIFYJS) $< --compress --mangle > $@
 
 
 .PHONY: bytes
@@ -13,7 +20,7 @@ bytes: base64.min.js
 .PHONY: clean
 clean:
 	@rm -rf node_modules
-	@git checkout -- *.min.js
+	@rm -f -- $(MIN)
 
 
 .PHONY: setup
@@ -23,4 +30,4 @@ setup:
 
 .PHONY: test
 test:
-	@$(bin)/istanbul cover $(bin)/_mocha -- --compilers coffee:coffee-script
+	@$(ISTANBUL) cover node_modules/.bin/_mocha -- --compilers coffee:coffee-script
