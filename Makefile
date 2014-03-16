@@ -19,7 +19,6 @@ bytes: base64.min.js
 
 .PHONY: clean
 clean:
-	rm -rf node_modules
 	rm -f -- $(MIN)
 
 
