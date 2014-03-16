@@ -16,4 +16,4 @@ setup:
 	@npm install
 
 test:
-	@$(bin)/mocha test --compilers coffee:coffee-script
+	@$(bin)/istanbul cover $(bin)/_mocha -- --compilers coffee:coffee-script
