@@ -9,25 +9,25 @@ MIN = $(patsubst %.js,%.min.js,$(SRC))
 all: $(MIN)
 
 %.min.js: %.js
-	@$(UGLIFYJS) $< --compress --mangle > $@
+	$(UGLIFYJS) $< --compress --mangle > $@
 
 
 .PHONY: bytes
 bytes: base64.min.js
-	@gzip --best --stdout $< | wc -c | tr -d ' '
+	gzip --best --stdout $< | wc -c | tr -d ' '
 
 
 .PHONY: clean
 clean:
-	@rm -rf node_modules
-	@rm -f -- $(MIN)
+	rm -rf node_modules
+	rm -f -- $(MIN)
 
 
 .PHONY: setup
 setup:
-	@npm install
+	npm install
 
 
 .PHONY: test
 test:
-	@$(ISTANBUL) cover node_modules/.bin/_mocha -- --compilers coffee:coffee-script
+	$(ISTANBUL) cover node_modules/.bin/_mocha -- --compilers coffee:coffee-script
