@@ -13,7 +13,7 @@
     "url": "git://github.com/davidchambers/Base64.js.git"
   },
   "devDependencies": {
-    "coffee-script": "1.4.x",
+    "coffee-script": "1.7.x",
     "istanbul": "0.2.x",
     "mocha": "1.8.x",
     "uglify-js": "2.2.x"

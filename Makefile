@@ -29,4 +29,4 @@ setup:
 
 .PHONY: test
 test:
-	$(ISTANBUL) cover node_modules/.bin/_mocha -- --compilers coffee:coffee-script
+	$(ISTANBUL) cover node_modules/.bin/_mocha -- --compilers coffee:coffee-script/register
