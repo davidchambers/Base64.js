@@ -1,5 +1,6 @@
 ISTANBUL = node_modules/.bin/istanbul
 UGLIFYJS = node_modules/.bin/uglifyjs
+XYZ = node_modules/.bin/xyz --message X.Y.Z --tag X.Y.Z
 
 SRC = base64.js
 MIN = $(patsubst %.js,%.min.js,$(SRC))
@@ -20,6 +21,15 @@ bytes: base64.min.js
 .PHONY: clean
 clean:
 	rm -f -- $(MIN)
+
+
+.PHONY: release-major release-minor release-patch
+release-major:
+	$(XYZ) --increment major
+release-minor:
+	$(XYZ) --increment minor
+release-patch:
+	$(XYZ) --increment patch
 
 
 .PHONY: setup
