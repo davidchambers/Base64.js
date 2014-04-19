@@ -19,6 +19,6 @@
     "istanbul": "0.2.x",
     "mocha": "1.18.x",
     "uglify-js": "2.4.x",
-    "xyz": "0.1.x"
+    "xyz": "0.2.x"
   }
 }
