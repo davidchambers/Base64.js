@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
+rm -f   base64.min.js
+make    base64.min.js
+git add base64.min.js
