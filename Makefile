@@ -1,6 +1,6 @@
 ISTANBUL = node_modules/.bin/istanbul
 UGLIFYJS = node_modules/.bin/uglifyjs
-XYZ = node_modules/.bin/xyz --message X.Y.Z --tag X.Y.Z
+XYZ = node_modules/.bin/xyz --message X.Y.Z --tag X.Y.Z --script scripts/prepublish
 
 SRC = base64.js
 MIN = $(patsubst %.js,%.min.js,$(SRC))
