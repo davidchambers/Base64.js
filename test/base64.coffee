@@ -28,6 +28,11 @@ describe 'Base64.js', ->
       err.name is 'InvalidCharacterError' and
       err.message is "'btoa' failed: The string to be encoded contains characters outside of the Latin1 range."
 
+  it 'coerces input', ->
+    assert.strictEqual btoa(42), btoa('42')
+    assert.strictEqual btoa(null), btoa('null')
+    assert.strictEqual btoa({x: 1}), btoa('[object Object]')
+
   it 'can decode Base64-encoded input', ->
     assert.strictEqual atob(''), ''
     assert.strictEqual atob('Zg=='), 'f'
@@ -50,3 +55,7 @@ describe 'Base64.js', ->
       err instanceof Error and
       err.name is 'InvalidCharacterError' and
       err.message is "'atob' failed: The string to be decoded is not correctly encoded."
+
+  it 'coerces input', ->
+    assert.strictEqual atob(42), atob('42')
+    assert.strictEqual atob(null), atob('null')
