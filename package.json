@@ -4,12 +4,7 @@
   "description": "Base64 encoding and decoding",
   "author": "David Chambers <dc@davidchambers.me>",
   "main": "./base64.js",
-  "licenses": [
-    {
-      "type": "WTFPL",
-      "url": "https://raw.github.com/davidchambers/Base64.js/master/LICENSE"
-    }
-  ],
+  "license": "(Apache-2.0 OR WTFPL)",
   "repository": {
     "type": "git",
     "url": "git://github.com/davidchambers/Base64.js.git"
