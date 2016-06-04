@@ -1,6 +1,6 @@
 ;(function () {
 
-  var object = typeof exports != 'undefined' ? exports : this; // #8: web workers
+  var object = typeof exports != 'undefined' ? exports : self; // #8: web workers
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
   function InvalidCharacterError(message) {
