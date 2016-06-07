@@ -15,5 +15,11 @@
     "mocha": "1.18.x",
     "uglify-js": "2.4.x",
     "xyz": "0.5.x"
-  }
+  },
+  "files": [
+    "/LICENSE",
+    "/README.md",
+    "/base64.js",
+    "/package.json"
+  ]
 }
