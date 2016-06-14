@@ -1,6 +1,6 @@
 {
   "name": "base64",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Base64 encoding and decoding",
   "main": "./base64.js",
   "license": "WTFPL",
