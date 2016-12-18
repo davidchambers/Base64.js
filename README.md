@@ -1,5 +1,7 @@
 # Base64.js
 
+[![CDNJS](https://img.shields.io/cdnjs/v/Base64.svg)](https://cdnjs.com/libraries/Base64)
+
 ≈ 500 byte* polyfill for browsers which don't provide [`window.btoa`][1] and
 [`window.atob`][2].
 
