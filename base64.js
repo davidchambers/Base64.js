@@ -1,9 +1,16 @@
 ;(function () {
 
-  var object =
-    typeof exports != 'undefined' ? exports :
-    typeof self != 'undefined' ? self : // #8: web workers
-    $.global; // #31: ExtendScript
+  var object = (
+    // #34: CommonJS
+    typeof exports === 'object' && exports !== null &&
+    typeof exports.nodeType !== 'number' ?
+      exports :
+    // #8: web workers
+    typeof self != 'undefined' ?
+      self :
+    // #31: ExtendScript
+      $.global
+  );
 
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
