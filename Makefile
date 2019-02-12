@@ -1,3 +1,4 @@
+ESLINT = node_modules/.bin/eslint
 ISTANBUL = node_modules/.bin/istanbul
 UGLIFYJS = node_modules/.bin/uglifyjs
 XYZ = node_modules/.bin/xyz --message X.Y.Z --tag X.Y.Z --repo git@github.com:davidchambers/Base64.js.git --script scripts/prepublish
@@ -23,6 +24,20 @@ clean:
 	rm -f -- $(MIN)
 
 
+.PHONY: lint
+lint:
+	@if [ $(shell node --version | tr -d v | cut -d . -f 1) -lt 6 ] ; then  \
+	  echo 'ESLint requires a recent version of Node' ;                     \
+	else                                                                    \
+	  $(ESLINT)                                                             \
+	    --config node_modules/sanctuary-style/eslint-es3.json               \
+	    --env node                                                          \
+	    --global describe                                                   \
+	    --global it                                                         \
+	    -- test/*.js ;                                                      \
+	fi
+
+
 .PHONY: release-major release-minor release-patch
 release-major release-minor release-patch:
 	@$(XYZ) --increment $(@:release-%=%)
@@ -35,4 +50,4 @@ setup:
 
 .PHONY: test
 test:
-	$(ISTANBUL) cover node_modules/.bin/_mocha -- --compilers coffee:coffee-script/register
+	$(ISTANBUL) cover node_modules/.bin/_mocha -- --reporter spec
