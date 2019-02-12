@@ -12,7 +12,7 @@
   "devDependencies": {
     "debug": "3.2.x",
     "eslint": "4.9.x",
-    "istanbul": "0.2.x",
+    "istanbul": "0.4.x",
     "mocha": "1.18.x",
     "sanctuary-style": "2.0.x",
     "uglify-js": "2.4.x",
