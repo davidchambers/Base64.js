@@ -13,7 +13,7 @@
     "debug": "3.2.x",
     "eslint": "4.9.x",
     "istanbul": "0.4.x",
-    "mocha": "1.18.x",
+    "mocha": "3.5.x",
     "sanctuary-style": "2.0.x",
     "uglify-js": "2.4.x",
     "xyz": "1.0.x"
