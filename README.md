@@ -2,7 +2,7 @@
 
 [![CDNJS](https://img.shields.io/cdnjs/v/Base64.svg)](https://cdnjs.com/libraries/Base64)
 
-≈ 500 byte* polyfill for browsers which don't provide [`window.btoa`][1] and
+≈ 600 byte* polyfill for browsers which don't provide [`window.btoa`][1] and
 [`window.atob`][2].
 
 Base64.js stems from a [gist][3] by [yahiko][4].
