@@ -10,7 +10,6 @@
     "url": "git://github.com/davidchambers/Base64.js.git"
   },
   "devDependencies": {
-    "debug": "3.2.x",
     "eslint": "5.15.x",
     "istanbul": "0.4.x",
     "mocha": "3.5.x",
