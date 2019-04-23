@@ -11,10 +11,10 @@
   },
   "devDependencies": {
     "debug": "3.2.x",
-    "eslint": "4.9.x",
+    "eslint": "5.15.x",
     "istanbul": "0.4.x",
     "mocha": "3.5.x",
-    "sanctuary-style": "2.0.x",
+    "sanctuary-style": "3.0.x",
     "uglify-js": "3.4.x",
     "xyz": "3.0.x"
   },
