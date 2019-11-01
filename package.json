@@ -15,7 +15,7 @@
     "mocha": "3.5.x",
     "sanctuary-style": "3.0.x",
     "uglify-js": "3.5.x",
-    "xyz": "3.0.x"
+    "xyz": "4.0.x"
   },
   "files": [
     "/LICENSE",
