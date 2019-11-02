@@ -1,18 +1,23 @@
-(function() {
+(function(f) {
 
   'use strict';
 
-  var object = (
-    // #34: CommonJS
-    typeof exports === 'object' && exports != null &&
-    typeof exports.nodeType !== 'number' ?
-      exports :
-    // #8: web workers
-    typeof self !== 'undefined' ?
-      self :
-    // #31: ExtendScript
-      $.global
-  );
+  /* istanbul ignore else */
+  if (typeof exports === 'object' && exports != null &&
+      typeof exports.nodeType !== 'number') {
+    module.exports = f ();
+  } else if (typeof define === 'function' && define.amd != null) {
+    define ([], f);
+  } else {
+    var base64 = f ();
+    var global = typeof self !== 'undefined' ? self : $.global;
+    if (typeof global.btoa !== 'function') global.btoa = base64.btoa;
+    if (typeof global.atob !== 'function') global.atob = base64.atob;
+  }
+
+} (function() {
+
+  'use strict';
 
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
@@ -24,8 +29,7 @@
 
   // encoder
   // [https://gist.github.com/999166] by [https://github.com/nignag]
-  object.btoa || (
-  object.btoa = function(input) {
+  function btoa(input) {
     var str = String (input);
     for (
       // initialize result and counter
@@ -44,12 +48,11 @@
       block = block << 8 | charCode;
     }
     return output;
-  });
+  }
 
   // decoder
   // [https://gist.github.com/1020396] by [https://github.com/atk]
-  object.atob || (
-  object.atob = function(input) {
+  function atob(input) {
     var str = (String (input)).replace (/[=]+$/, ''); // #31: ExtendScript bad parse of /=
     if (str.length % 4 === 1) {
       throw new InvalidCharacterError ("'atob' failed: The string to be decoded is not correctly encoded.");
@@ -69,6 +72,8 @@
       buffer = chars.indexOf (buffer);
     }
     return output;
-  });
+  }
 
-} ());
+  return {btoa: btoa, atob: atob};
+
+}));

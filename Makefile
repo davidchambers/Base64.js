@@ -32,7 +32,9 @@ lint:
 	  $(ESLINT)                                                             \
 	    --config node_modules/sanctuary-style/eslint-es3.json               \
 	    --global $$                                                         \
+	    --global define                                                     \
 	    --global exports                                                    \
+	    --global module                                                     \
 	    --global self                                                       \
 	    --rule 'max-len: [off]'                                             \
 	    --rule 'no-plusplus: [off]'                                         \
