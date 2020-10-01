@@ -1,5 +1,5 @@
 # Base64.js
-
+i am use windows 10
 [![CDNJS](https://img.shields.io/cdnjs/v/Base64.svg)](https://cdnjs.com/libraries/Base64)
 
 ≈ 700 byte* polyfill for browsers which don't provide [`window.btoa`][1] and
