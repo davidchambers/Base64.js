@@ -13,7 +13,7 @@
     "eslint": "6.8.x",
     "istanbul": "0.4.x",
     "mocha": "5.2.x",
-    "sanctuary-style": "4.0.x",
+    "sanctuary-style": "4.1.x",
     "uglify-js": "3.5.x",
     "xyz": "4.0.x"
   },
