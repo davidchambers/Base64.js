@@ -1,8 +1,0 @@
-sudo: false
-language: node_js
-node_js:
-  - "12.22.0"
-  - "14"
-  - "16"
-install: make setup
-script: make lint test
