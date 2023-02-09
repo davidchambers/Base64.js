@@ -26,26 +26,22 @@ clean:
 
 .PHONY: lint
 lint:
-	@if [ $(shell node --version | tr -d v | cut -d . -f 1) -lt 6 ] ; then  \
-	  echo 'ESLint requires a recent version of Node' ;                     \
-	else                                                                    \
-	  $(ESLINT)                                                             \
-	    --config node_modules/sanctuary-style/eslint-es3.json               \
-	    --global $$                                                         \
-	    --global define                                                     \
-	    --global exports                                                    \
-	    --global module                                                     \
-	    --global self                                                       \
-	    --rule 'max-len: [off]'                                             \
-	    --rule 'no-plusplus: [off]'                                         \
-	    -- base64.js ;                                                      \
-	  $(ESLINT)                                                             \
-	    --config node_modules/sanctuary-style/eslint-es3.json               \
-	    --env node                                                          \
-	    --global describe                                                   \
-	    --global it                                                         \
-	    -- test/*.js ;                                                      \
-	fi
+	$(ESLINT)                                                   \
+	  --config node_modules/sanctuary-style/eslint-es3.json     \
+	  --global $$                                               \
+	  --global define                                           \
+	  --global exports                                          \
+	  --global module                                           \
+	  --global self                                             \
+	  --rule 'max-len: [off]'                                   \
+	  --rule 'no-plusplus: [off]'                               \
+	  -- base64.js
+	$(ESLINT)                                                   \
+	  --config node_modules/sanctuary-style/eslint-es3.json     \
+	  --env node                                                \
+	  --global describe                                         \
+	  --global it                                               \
+	  -- test/*.js
 
 
 .PHONY: release-major release-minor release-patch
