@@ -1,6 +1,6 @@
 {
   "name": "Base64",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Base64 encoding and decoding",
   "author": "David Chambers <dc@davidchambers.me>",
   "main": "./base64.js",
