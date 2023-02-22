@@ -10,10 +10,10 @@
     "url": "git://github.com/davidchambers/Base64.js.git"
   },
   "devDependencies": {
-    "eslint": "8.2.x",
+    "eslint": "8.34.x",
     "istanbul": "0.4.x",
     "mocha": "5.2.x",
-    "sanctuary-style": "5.0.x",
+    "sanctuary-style": "6.0.x",
     "uglify-js": "3.5.x",
     "xyz": "4.0.x"
   },
