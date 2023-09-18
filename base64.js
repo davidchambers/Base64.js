@@ -37,7 +37,7 @@
       o2 = data.charCodeAt (i++);
       o3 = data.charCodeAt (i++);
 
-      if (o1 > 128 || o2 > 128 || o3 > 128) {
+      if (o1 > 255 || o2 > 255 || o3 > 255) {
         throw new InvalidCharacterError ("'btoa' failed: The string to be encoded contains characters outside of the Latin1 range.");
       }
 

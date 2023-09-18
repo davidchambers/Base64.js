@@ -29,7 +29,8 @@ describe ('Base64.js', function() {
     assert.strictEqual (btoa ('qrstuvwxyz{|}~'), 'cXJzdHV2d3h5ent8fX4=');
   });
 
-  it ('cannot encode non-ASCII input', function() {
+  it ('cannot encode characters beyond U+00FF', function() {
+    assert.strictEqual (String.fromCharCode (0x2708), '✈');
     assert.throws (
       function() { btoa ('✈'); },
       function(err) {
@@ -81,6 +82,13 @@ describe ('Base64.js', function() {
   it ('coerces input', function() {
     assert.strictEqual (atob (42), atob ('42'));
     assert.strictEqual (atob (null), atob ('null'));
+  });
+
+  it ('can encode every character in [U+0000, U+00FF]', function() {
+    for (var code = 0x0; code <= 0xFF; code += 0x1) {
+      var char = String.fromCharCode (code);
+      assert.strictEqual (atob (btoa (char)), char);
+    }
   });
 
 });
