@@ -17,6 +17,9 @@
     "uglify-js": "3.5.x",
     "xyz": "4.0.x"
   },
+  "scripts": {
+    "test": "make lint test"
+  },
   "files": [
     "/LICENSE",
     "/README.md",
